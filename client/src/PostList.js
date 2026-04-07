@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import CommentCreate from "./CommentCreate";
 
 export default function PostList(params) {
   const [posts, setPosts] = useState({});
@@ -17,6 +18,7 @@ export default function PostList(params) {
       <div className="" key={post.id}>
         <div>
           <h3>{post.title}</h3>
+          <CommentCreate postId={post.id} />
         </div>
       </div>
     );
