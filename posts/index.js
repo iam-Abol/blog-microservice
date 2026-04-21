@@ -31,5 +31,6 @@ app.post("/events", (req, res) => {
 });
 
 app.listen(4000, () => {
+  console.log("vv22");
   console.log("listeninig on 4000");
 });
