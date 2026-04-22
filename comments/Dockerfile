@@ -5,8 +5,7 @@ RUN sed -i 's|https\?://dl-cdn.alpinelinux.org/alpine|https://mirror.arvancloud.
 WORKDIR /app
 
 COPY package.json package-lock.json ./
-RUN npm config set registry https://mirror2.chabokan.net/npm/ \
- && npm install -g npm@latest \
+RUN npm install -g npm@latest \
  && npm install --no-audit --no-fund
 COPY . .
 CMD ["npm","start"]
