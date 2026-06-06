@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: comments
-          image: abolziya/comments:0.0.1
+          image: abolfazlziyaaldini/comments
 ---
 apiVersion: v1
 kind: Service

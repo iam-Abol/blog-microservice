@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: query
-          image: abolziya/query:0.0.2
+          image: abolfazlziyaaldini/query
 ---
 apiVersion: v1
 kind: Service
