@@ -31,6 +31,6 @@ app.post("/events", (req, res) => {
 });
 
 app.listen(4000, "0.0.0.0", () => {
-  console.log("23234566");
+  console.log("testing skaffold");
   console.log("listeninig on 4000");
 });
