@@ -25,6 +25,7 @@ This project is built using an **event-driven microservices architecture**:
 ## 🧩 Services
 
 ### 🖥 Client (React)
+
 - Create posts
 - View posts
 - Add comments
@@ -33,6 +34,7 @@ This project is built using an **event-driven microservices architecture**:
 ---
 
 ### 📝 Posts Service (Port 4000)
+
 - Stores posts in memory
 - Emits `PostCreated` event
 - Handles incoming events
@@ -40,6 +42,7 @@ This project is built using an **event-driven microservices architecture**:
 ---
 
 ### 💬 Comments Service (Port 4001)
+
 - Stores comments per post
 - Emits `CommentCreated`
 - Handles moderation updates
@@ -47,6 +50,7 @@ This project is built using an **event-driven microservices architecture**:
 ---
 
 ### 🔍 Query Service (Port 4002)
+
 - Builds optimized read model
 - Combines posts + comments
 - Handles:
@@ -57,6 +61,7 @@ This project is built using an **event-driven microservices architecture**:
 ---
 
 ### ⚖️ Moderation Service (Port 4003)
+
 - Automatically moderates comments
 - Rejects comments containing the word **"orange"**
 - Emits `CommentModerated`
@@ -64,6 +69,7 @@ This project is built using an **event-driven microservices architecture**:
 ---
 
 ### 📡 Event Bus (Port 4005)
+
 - Central event hub
 - Receives all events
 - Broadcasts to all services
@@ -83,23 +89,23 @@ All services are deployed using Kubernetes:
 
 ## 🌐 Ingress Routing
 
-| Route | Service |
-|------|--------|
-| `/posts/create` | Posts Service |
-| `/posts` | Query Service |
+| Route                 | Service          |
+| --------------------- | ---------------- |
+| `/posts/create`       | Posts Service    |
+| `/posts`              | Query Service    |
 | `/posts/:id/comments` | Comments Service |
-| `/*` | React Client |
+| `/*`                  | React Client     |
 
 ---
 
 ## 🔄 Event Types
 
-| Event | Description |
-|------|------------|
-| `PostCreated` | A new post is created |
-| `CommentCreated` | A new comment is created |
-| `CommentModerated` | Comment is approved/rejected |
-| `CommentUpdated` | Updated comment status/content |
+| Event              | Description                    |
+| ------------------ | ------------------------------ |
+| `PostCreated`      | A new post is created          |
+| `CommentCreated`   | A new comment is created       |
+| `CommentModerated` | Comment is approved/rejected   |
+| `CommentUpdated`   | Updated comment status/content |
 
 ---
 
@@ -118,6 +124,7 @@ All services are deployed using Kubernetes:
 ## 🚀 How to Run Locally
 
 ### 1. Prerequisites
+
 - Docker
 - Kubernetes (Minikube or Docker Desktop Kubernetes)
 - Skaffold
@@ -130,21 +137,29 @@ All services are deployed using Kubernetes:
 ```bash
 kubectl apply -f infra/k8s/
 ```
+
 ## 3. Start Development with Skaffold
 
 ```bash
 skaffold dev
 ```
+
 ### 4. Add Local Domain
+
 Add this to your /etc/hosts file:
+
 ```bash
 127.0.0.1 posts.com
 ```
+
 ### 5. Open the App
+
 Open in your browser:
+
 ```bash
 http://posts.com
 ```
+
 ## 🧠 Key Concepts Learned
 
 - Microservices architecture
@@ -172,3 +187,11 @@ http://posts.com
 ## 👨‍💻 Author
 
 - Microservices learning project built with Kubernetes and event-driven architecture.
+
+---
+
+## 🌐 Useful Link for Users in Iran
+
+If you are in Iran, this guide may help when downloading dependencies and setting up NGINX:
+
+👉 [Bypassing restrictions for Kubernetes & NGINX setup (Virgool)](https://virgool.io/@ahmadidev/%D8%B1%D9%88%D8%B4-%D9%87%D8%A7%DB%8C-%D8%AF%D9%88%D8%B1-%D8%B2%D8%AF%D9%86-%D8%AA%D8%AD%D8%B1%DB%8C%D9%85-%DA%A9%D9%88%D8%A8%D8%B1%D9%86%DB%8C%D8%AA%DB%8C%D8%B2-%D9%88-%D9%85%D8%B9%D8%B1%D9%81%DB%8C-%D9%85%DB%8C%D8%B1%D9%88%D8%B1-%DA%A9%D9%84%D8%A7%D8%AF-%D8%B9%D9%84%DB%8C-%D8%A8%D8%A7%D8%A8%D8%A7-wgbqm5mtbzik)
